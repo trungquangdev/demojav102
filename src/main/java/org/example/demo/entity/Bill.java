@@ -21,18 +21,20 @@ public class Bill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY)  /// LAZY: (Lazy Loading - Tải lười / Tải chậm)
     @JoinColumn(nullable = false)
     User user;
 
     @OneToMany(mappedBy = "bill", cascade = CascadeType.ALL, orphanRemoval = true)
     Set<BillDrink> billDrinks = new HashSet<>();
 
+
     @Column(nullable = false, unique = true)
     String code;
 
-    @CreationTimestamp
-    @Column(nullable = false)
+    @CreationTimestamp ///tự động gán thời điểm (ngày và giờ) hiện tại vào thuộc tính khi một bản ghi mới được tạo và lưu vào cơ sở dữ liệu.
+    @Column(nullable = false) /// nullable=false tự động thêm ràng buộc not null
     LocalDateTime createdAt;
 
     @Column(precision = 12, scale = 2)
