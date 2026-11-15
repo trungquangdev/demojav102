@@ -1,4 +1,5 @@
 package org.example.demo.entity;
 
-public class Role {
+public enum Role {
+    ADMIN,CUSTOMER;
 }

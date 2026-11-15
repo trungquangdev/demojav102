@@ -1,4 +1,5 @@
 package org.example.demo.entity;
 
-public class BillStatus {
+public enum BillStatus {
+    PENDING, PAID, CANCELLED
 }
